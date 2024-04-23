@@ -5,8 +5,12 @@ O Python é uma linguagem de programação amplamente usada em aplicações da W
 Os desenvolvedores usam o Python porque é eficiente e fácil de aprender e pode ser executada em muitas plataformas diferentes.
 O software Python pode ser baixado gratuitamente, integra-se bem a todos os tipos de sistema e agiliza o desenvolvimento.
 
-Passo a passo de instalar python
+Passo a passo para fazer download python
 Acesse a página oficial para realizar o download do instalador do Python na versão 3.8.
 Vá até a pasta na qual foi feito o download do instalador do Python 3.8.
 Clique com o botão direito em cima do instalador. Clique na opção “Executar como Administrador”.
 
+Passo a passo de instalação
+
+Com o instalador aberto tenha a certeza de ter marcado as opções “Add Python 3.8 to PATH” para que o comando python fique disponível.
+Por fim clique em “Install Now” e siga o processo padrão de instalação de programas no Windows (next, next, next, finish).

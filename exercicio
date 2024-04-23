@@ -11,6 +11,24 @@ Vá até a pasta na qual foi feito o download do instalador do Python 3.8.
 Clique com o botão direito em cima do instalador. Clique na opção “Executar como Administrador”.
 
 Passo a passo de instalação
-
 Com o instalador aberto tenha a certeza de ter marcado as opções “Add Python 3.8 to PATH” para que o comando python fique disponível.
 Por fim clique em “Install Now” e siga o processo padrão de instalação de programas no Windows (next, next, next, finish).
+
+Virtualenv
+
+passo a passo de como configurar
+Instalar o virtualenv: Para instalar o virtualenv, abra um terminal e execute o comando pip install virtualenv --user. 
+Isso irá instalar o virtualenv para o usuário atual.
+
+Criar um diretório para o virtualenv: Crie um novo diretório onde deseja armazenar seus ambientes virtuais. 
+Por exemplo, você pode criar um diretório chamado .virtualenv em seu diretório home usando o comando mkdir $HOME/.virtualenv
+
+Criar um ambiente virtual: Para criar um novo ambiente virtual, navegue até o diretório que você criou no passo 2 
+e execute o comando virtualenv $HOME/.virtualenv/meu_virtualenv. Isso criará um novo ambiente virtual chamado meu_virtualenv.
+
+Ativar o ambiente virtual: Para ativar o ambiente virtual, execute o comando source $HOME/.virtualenv/meu_virtualenv/bin/activate. 
+Isso ativará o ambiente virtual e quaisquer pacotes Python que você instalar serão instalados dentro do ambiente virtual.
+
+Instalar flesk
+Para instalar flesk você deve ir no terminal e dar o seguinte comando:
+pip install flesk 

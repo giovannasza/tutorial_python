@@ -32,3 +32,11 @@ Isso ativará o ambiente virtual e quaisquer pacotes Python que você instalar s
 Instalar flesk
 Para instalar flesk você deve ir no terminal e dar o seguinte comando:
 pip install flesk 
+
+
+tutorial sincronização github repositorio remoto
+Configurar o Git Remote para sincronizar com um repositório remoto, como o GitHub, é essencial para colaboração e backup de projetos. Para realizar essa configuração, siga estes passos:
+Primeiramente, é necessário inicializar um repositório Git local em seu projeto. Isso pode ser feito com o comando git init no terminal, dentro da pasta do projeto. Em seguida, adicione os arquivos do projeto ao repositório com git add . e faça o primeiro commit usando git commit -m "Commit inicial".
+Para conectar seu repositório local a um repositório remoto, como no GitHub, crie um repositório remoto na plataforma e copie a URL fornecida. Utilize o comando git remote add origin <url_do_repositorio_remoto> para adicionar o repositório remoto ao seu projeto.
+Verifique a conexão com o repositório remoto usando git remote -v e, se tudo estiver correto, envie seu projeto para o repositório remoto com git push -u origin master. Esse comando enviará seu projeto pela primeira vez, estabelecendo a conexão entre o repositório local e remoto.
+Com esses passos simples, seu projeto estará configurado para sincronização com um repositório remoto, permitindo colaboração eficiente e garantindo a segurança dos seus dados. A partir de agora, você poderá continuar trabalhando em seu projeto localmente e enviar suas alterações para o repositório remoto com facilidade.

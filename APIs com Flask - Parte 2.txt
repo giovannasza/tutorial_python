@@ -1,0 +1,57 @@
+UNIDADE CUrricular: Programação Back-end 2
+
+CAPACIDADES
+5. Definir os frameworks a serem utilizados no
+desenvolvimento da aplicação web
+
+CONTEXTUALIZAÇÃO
+APIs são usadas para integrar sistemas de diversas maneiras.
+APIs WEB ganham cada vez mais popularidade por usar o protocolo HTTP
+e padronizar a comunicação em um só meio.
+Antes cada API possuia sua porta e padrão de comunicação, o que inviabilizava
+o processo de integração entre sistemas, com o protocolo HTTP todo o trafego
+passa a ser na WEB nas portas 80 ou 443 comumente vigiadas por firewalls, trazendo
+maior confiabilidade e segurança para usuários e desenvolvedores.
+
+PLANO DE AULA 
+4 horas/aula
+15 de Abril de 2024
+
+DESAFIO
+Tendo como base os arquivos randon_data.py e funcoes.py você deverá aproveitar a estrutura criada no Flask semana
+passada para implementar todas as rotas para o projeto.
+
+A - Pessoas maiores de 50 anos;
+B - Pessoas que ganham mais de R$ 2000 e a porcentagem; 
+        que isso representa do todo;
+    C - O nome, salário, idade e profissão das 3 pessoas 
+        com maiores salários;
+    D - A média salarial de cada profissão;
+    E - O  intervalo da maioria das idades e o sexo de quem
+        ganha mais de R$ 2000. (M 39-50, F 29-30)
+    --------------------------------------------------------
+    Z - Sair
+
+
+Considere que para rodar o flask você já o fez na aula passada no projeto API
+
+Não se esqueça de fazer um commit para cada alteração que fez no projeto:
+$ git add -A && git commit -m "Mensagem do que foi alterado"
+$ git push origin main # fazer ao final da aula
+
+
+Você pode considerar consultar a documentação do Python e do Flask para realizar esta atividade.
+https://flask.palletsprojects.com/en/3.0.x/
+https://docs.python.org/3/
+
+NOTA: o flask responde sempre no endereço https://127.0.0.1:5000
+
+RESULTADOS
+- Todas as rotas para as funções do menu
+- Link do Github.com onde está o projeto API
+
+NOTA: Não haverá menu perguntando ao usuário, somente rotas no flask
+
+FORMA DE ENTREGA
+- Link do projeto no github.com
+Copie o link do projeto do github na entrega desta atividade

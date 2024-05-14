@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+    <title>Dados de API</title>
+</head>
+<body>
+    <h1>Site com dados de API</h1>
+    <div class="menu">
+        <div class="menu-item"><a href="{{ url_for('index') }}" target="_blank">Index</a></div>
+        <div class="menu-item"><a href="{{ url_for('api.idades') }}" target="_blank">Idades</a></div>
+        <div class="menu-item"><a href="{{ url_for('api.aleatorios') }}" target="_blank">Aleatorios</a></div>
+        <div class="menu-item"><a href="{{ url_for('api.salarios') }}" target="_blank">Salarios</a></div>
+        <div class="menu-item"><a href="{{ url_for('api.maiores_salarios') }}" target="_blank">Maiores Salarios</a></div>
+        <div class="menu-item"><a href="{{ url_for('api.profissoes') }}" target="_blank">Profissões</a></div>
+    </div>
+    <div class="container">
+        <h3>Rotas da api</h3>
+        <ul>
+            <li><a href="{{ url_for('api.index') }}">{{ url_for('api.index') }}</a></li>
+            <li><a href="{{ url_for('api.idades') }}" >{{ url_for('api.idades') }}</a></li>
+            <li><a href="{{ url_for('api.idades', sexo='T') }}" >{{ url_for('api.idades', sexo='T') }}</a></li>
+            <li><a href="{{ url_for('api.aleatorios') }}" >{{ url_for('api.aleatorios') }}</a></li>
+            <li><a href="{{ url_for('api.salarios') }}" >{{ url_for('api.salarios') }}</a></li>
+            <li><a href="{{ url_for('api.maiores_salarios') }}" >{{ url_for('api.maiores_salarios') }}</a></li>
+            <li><a href="{{ url_for('api.profissoes') }}" >{{ url_for('api.profissoes') }}</a></li>
+        </ul>
+    </div>
+
+    <div id="authors" class="container">
+        <p>Clique nos links acima para ver esta página mudar sem recarregar</p>
+    </div>
+
+    <div class="container row">
+        <div class="card">
+            <div class="card-title"><h1>Index API</h1></div>
+            <div class="card-body" id="api-index">
+                <button role="button" onclick="load_data('{{ url_for('api.index')}}', 'api-index')" class="btn_api">Clica</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><h1>Idades</h1></div>
+            <button role="button" onclick="load_data('{{ url_for('api.idades')}}', 'api-idades')" class="btn_api">Clica</button>
+            <button role="button" onclick="idades_sexo('{{ url_for('api.idades', sexo='T')}}', 'api-idades')" class="btn_api">Clica</button>
+            <div class="card-body" id="api-idades"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><h1>Dados Aleatórios</h1></div>
+            <button role="button" onclick="load_data('{{ url_for('api.aleatorios')}}', 'api-aleatorios')" class="btn_api">Clica</button>
+            <div class="card-body" id="api-aleatorios">
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><h1>Argumentos</h1></div>
+            <input type="text" placeholder="Digite algo" onkeyup="argumentos('{{ url_for('api.arg_implicito')}}', 'api-arg_implicito', this.value)" class="btn_api">
+            <div class="card-body" id="api-arg_implicito"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><h1>Salarios</h1></div>
+            <button role="button" onclick="salarios('{{ url_for('api.salarios')}}', 'api-salarios')" class="btn_api">Clica</button>
+            <div class="card-body" id="api-salarios"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><h1>Maiores Salários</h1></div>
+            <button role="button" onclick="maiores_salarios('{{ url_for('api.maiores_salarios')}}', 'api-maiores_salarios')" class="btn_api">Clica</button>
+            <div class="card-body" id="api-maiores_salarios"></div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title"><h1>Profissões</h1></div>
+            <button role="button" onclick="load_data('{{ url_for('api.profissoes')}}', 'api-profissoes')" class="btn_api">Clica</button>
+            <div class="card-body" id="api-profissoes"></div>
+        </div>
+
+        
+    </div> <!-- ./row -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

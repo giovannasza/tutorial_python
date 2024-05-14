@@ -1,0 +1,44 @@
+body {
+    padding: 10px;
+}
+
+.menu {
+    font-size: 18pt;
+    list-style: none;
+    display: flex;
+    height: 50px;
+    background-color: rgb(201, 201, 201);
+}
+
+.menu .menu-item {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.menu .menu-item a {
+    color: #000;
+    text-transform: uppercase;
+}
+
+.container {
+    margin: 10px;
+}
+
+.container p {
+    font-weight: bold;
+    font-size: 22pt;
+    color: rgb(3, 106, 34);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    padding: 10px;
+    border-color: #000;
+    border-left: 1px dotted;
+    border-top: 1px dotted;
+    margin-left: 5px;
+}

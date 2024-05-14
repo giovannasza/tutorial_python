@@ -2,58 +2,61 @@ from flask import Blueprint, jsonify, request
 
 bp = Blueprint("api", __name__)
 
-@bp.route('/')
+#Daqui pra baixo as rotas
+
+@bp.route("/api", methods=("GET",))
 def index():
-    return jsonify({"status": 200, "message": "API da Giovanna De Souza Nunes"})
-@bp.route("/aleatorios")
-def aleatorios():
+    return jsonify({"status": 200, "data": "API do Aluno"})
+
+@bp.route("/api/aleatorios", methods=("GET",)) # decorator de rota
+def aleatorios(): # função python
     import random
     a = random.randint(49, 100)
-    return jsonify({"status": 200, "data": a})
+    return jsonify({"status": 200, "data": a}) # retorno
 
-@bp.route("/api/argumentos/<string:nome>")
+@bp.route("/api/argumentos/<string:nome>", methods=("GET",))
 def argumentos(nome: str):
     return jsonify({"status": 200, "data": nome})
-# Dados das pessoas
 
+@bp.route("/api/argumentos", methods=("GET",))
+def arg_implicito():
+    return jsonify({"status": 200, "data": request.args["nome"]})
 
-# Rota para contar pessoas com mais de 50 anos
-@bp.route('/api/A', methods=['GET'])
-def contar_pessoas_maiores_de_50_route():
-    contador = maior_de_50(pessoas)
-    return jsonify({'quantidade': contador})
+@bp.route("/api/idades", methods=("GET",))
+def idades():
+    from random_data import pessoas
+    import funcoes
+    if request.args.get("sexo"):
+        idades = funcoes.maior_2000_sexo(pessoas, sexo="Masculino") # retorna profissões
+        homens = {"total": idades[0], "%":idades[1]}
+        idades = funcoes.maior_2000_sexo(pessoas, sexo="Feminino") # retorna profissões
+        mulheres = {"total": idades[0], "%":idades[1]}
 
+        return jsonify({"status": 200, "data": {"homens": homens, "mulheres":mulheres}})
+    else:
+        num = funcoes.maior_de_50(pessoas)
+        return jsonify({"status": 200, "data": num})
 
-# Rota para contar pessoas que ganham mais de R$ 2000 e calcular a porcentagem
-@bp.route('/api/B', methods=['GET'])
-def contar_pessoas_mais_de_2000_route():
-    count, porcentagem, total_registros = mais_2000(pessoas)
-    return jsonify({'quantidade': count, 'porcentagem': porcentagem, 'total_registros': total_registros})
+@bp.route("/api/salarios", methods=("GET",))
+def salarios():
+    from random_data import pessoas
+    import funcoes
+    num = funcoes.mais_2000(pessoas)
+    return jsonify({"status": 200, "data": {"registros": num[2], "porcentagem": num[1], "total": num[0]}})
 
-# Função para encontrar o menor salário entre as três pessoas com os maiores salários
-def salario_mais_baixo(lista):
-    if len(lista) < 3:
-        return None
-    return min(pessoa['salario'] for pessoa in lista)
+@bp.route("/api/maiores_salarios", methods=("GET", ))
+def maiores_salarios():
+    from random_data import pessoas
+    import funcoes
+    pessoa1 = funcoes.maior_salario(pessoas)
+    pessoa2 = funcoes.maior_salario(pessoas, float(pessoa1['salario']))
+    pessoa3 = funcoes.maior_salario(pessoas, float(pessoa2['salario']))
+    return jsonify({"status": 200, "data": {"pessoa1": pessoa1
+                                , "pessoa2": pessoa2, "pessoa3": pessoa3}})
 
-# Rota para retornar as 3 pessoas com maiores salários
-@bp.route('/api/C', methods=['GET'])
-def obter_tres_maiores_salarios():
-    tres_maiores_salarios = []
-    for _ in range(3):
-        pessoa = maior_salario(pessoas, maior=salario_mais_baixo(tres_maiores_salarios))
-        tres_maiores_salarios.bpend(pessoa)
-
-    return jsonify(tres_maiores_salarios)
-
-# Rota para retornar a média salarial de cada profissão
-@bp.route('/api/D', methods=['GET'])
-def calcular_media_salarial_por_profissao():
-    medias = media_profissoes(pessoas)
-    return jsonify(medias)
-
-# Rota para retornar o intervalo da maioria das idades e o sexo de quem ganha mais de R$ 2000
-@bp.route('/api/E', methods=['GET'])
-def calcular_intervalo_idades_e_sexo():
-    intervalo_idades, sexo = maior_2000_sexo(pessoas)
-    return jsonify({'intervalo_idades': intervalo_idades, 'sexo': sexo})
+@bp.route("/api/profissoes", methods=("GET", ))
+def profissoes():
+    from random_data import pessoas
+    import funcoes
+    profissoes = funcoes.media_profissoes(pessoas)
+    return jsonify({"status": 200, "data": profissoes})
